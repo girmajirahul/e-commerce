@@ -2,7 +2,37 @@ import React, { useState } from 'react';
 
 export default function Signup() {
   const [showSignup, setShowSignup] = useState(false);
+  const [formData,setformData]=useState({
+    username:'',
+    fullname:'',
+    email:'',
+    password:'',
+  });
 
+  const handleChange=(e)=>{
+    setformData(prev => ({ ...prev, [e.target.name]: e.target.value }));
+  }
+
+  const handleSubmmit= async (e)=>{
+    e.preventDefault();
+    const endpoint=showSignup ? '/signup':'/login';
+    try{
+        const response =await fetch(`http://localhost:3000${endpoint}`,{
+          method:"POST",
+          headers:{
+            "Content-Type": "application/json"
+          },
+          body:JSON.stringify(formData),
+        });
+
+        const result =await response.json()
+        alert(result.message || "Success");
+    }catch(err){
+      console.log("error submit form ",err)
+      alert("Something Went Wrong !")
+    }
+
+  }
   const toggleForm = () => setShowSignup((prev) => !prev);
 
   return (
@@ -12,7 +42,7 @@ export default function Signup() {
           <h3>{showSignup ? 'Create A New Account' : 'Already a member? Login'}</h3>
         </div>
 
-        <form method="post" className="space-y-4">
+        <form method="post" onSubmit={handleSubmmit} className="space-y-4">
           {showSignup && (
             <>
               <div className="flex flex-col">
@@ -22,6 +52,8 @@ export default function Signup() {
                   name="username"
                   id="username"
                   placeholder="Enter username"
+                  value={formData.username}
+                  onChange={handleChange}
                   className="border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
               </div>
@@ -32,6 +64,8 @@ export default function Signup() {
                   type="text"
                   name="fullname"
                   id="fullname"
+                  value={formData.fullname}
+                  onChange={handleChange}
                   placeholder="Enter full name"
                   className="border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
@@ -42,9 +76,11 @@ export default function Signup() {
           <div className="flex flex-col">
             <label htmlFor="email" className="mb-1 font-medium">Email</label>
             <input
-              type="email"
+              type="text"
               name="email"
               id="email"
+              value={formData.email}
+              onChange={handleChange}
               placeholder="Enter email"
               className="border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
@@ -56,6 +92,8 @@ export default function Signup() {
               type="password"
               name="password"
               id="password"
+              value={formData.password}
+              onChange={handleChange}
               placeholder="Enter password"
               className="border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
