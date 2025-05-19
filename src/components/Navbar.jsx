@@ -56,9 +56,9 @@ export default function Navbar() {
         >
           <ul className="flex flex-col md:flex-row md:space-x-6 text-center font-medium mt-4 md:mt-0">
             <li><a href="/" className="hover:text-[#FF8201] block py-2">Home</a></li>
-            <li><a href="/about" className="hover:text-[#FF8201] block py-2">About Us</a></li>
-            <li><a href="/services" className="hover:text-[#FF8201] block py-2">Services</a></li>
-            <li><a href="/contact" className="hover:text-[#FF8201] block py-2">Contact Us</a></li>
+            <li><a href="/women" className="hover:text-[#FF8201] block py-2">Women Section</a></li>
+            <li><a href="/Kids" className="hover:text-[#FF8201] block py-2">KIDS Section</a></li>
+            <li><a href="/phones" className="hover:text-[#FF8201] block py-2">Electronics</a></li>
           </ul>
 
           <div className="flex justify-center items-center mt-4 md:mt-0 md:ml-4 space-x-4">

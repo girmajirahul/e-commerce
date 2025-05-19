@@ -1,6 +1,7 @@
 import React from 'react'
 import Heropic from '../assets/images/image1.jpg'
 import ProductList from './ProductList'
+import Popular from './Women'
 function Home() {
   return (
     <div>
@@ -17,6 +18,7 @@ function Home() {
       <div>
         <ProductList />
       </div>
+     
     </div>
   )
 }

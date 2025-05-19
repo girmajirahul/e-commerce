@@ -6,7 +6,7 @@ const ProductList = () => {
 const [products, setProducts] = useState([]);
 const [loading, setLoading] = useState(true);
 const navigate=useNavigate()
-const [count,setCount]=useState(0);
+
 const styles = {
   grid: {
     display: 'grid',
@@ -53,13 +53,13 @@ const styles = {
   return (
     <div style={styles.grid}>
       {products.map((product) => (
-        <div key={product.id} style={styles.card} onClick={()=>navigate(`/product/${product.id}`)}>
+        <div key={product.id} style={styles.card} >
           <img src={product.image} alt={product.title} style={styles.image} />
           <h3>{product.title}</h3>
           <h4 className='font-serif'>{product.price} $</h4>
           <div className="flex gap-2">
             <button className=' bg-amber-300 p-3 rounded-[10px]  ' >Add to Cart </button>
-            <button className=' bg-amber-500 p-3 rounded-[10px] '>Proceed Buy </button>
+            <button className=' bg-amber-500 p-3 rounded-[10px] ' onClick={()=>navigate(`/product/${product.id}`)} >Proceed Buy </button>
           </div>
         </div>
       ))}
