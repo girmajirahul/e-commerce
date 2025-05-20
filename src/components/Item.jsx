@@ -33,7 +33,7 @@ export default function Item(props) {
           alt={props.name}
           className="w-full h-[200px] object-contain p-0"
         />
-        <p className="text-center font-medium mt-2">{props.name}</p>
+        <p className="text-center font-medium mt-2 text-black">{props.name}</p>
         <div className="flex flex-col items-center gap-2 mt-2 mb-3">
           <div className="text-lg font-semibold text-green-600">${props.new_price}</div>
           <button

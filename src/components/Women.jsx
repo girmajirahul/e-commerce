@@ -6,7 +6,7 @@ export default function Women() {
   return (
   
       <div
-        className="relative text-white h-[300px]  w-full bg-cover bg-center grid place-items-center mb-10"
+        className="relative text-white h-[300px]  w-full bg-cover bg-center grid place-items-center mb-10 m-8"
         style={{ backgroundImage: `url(${banner1})` }}>
         
       <div className='flex flex-wrap gap-7 mt-80'>
