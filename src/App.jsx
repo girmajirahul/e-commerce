@@ -8,11 +8,13 @@ import Singup from './components/Singup'
 import Women from './components/Women'
 import Kids from './components/Kids'
 import Electronics from './components/Electronics'
+
 function App() {
   
   return (
     <>
       {/* <Navbar/> */}
+    
       <Router>
         <Navbar />
         <Routes>
@@ -21,10 +23,12 @@ function App() {
           <Route path="/women" element={<Women />}/>
           <Route path="/Kids" element={<Kids />}/>
           <Route path="/phones" element={<Electronics />}/>
+          
           <Route path="/product/:id/" element={<ProductDetails />}/>
           
         </Routes>
       </Router>
+      
     </>
   )
 }

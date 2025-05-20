@@ -52,7 +52,7 @@ const styles = {
 
   return (
     <div style={styles.grid}>
-      {products.map((product) => (
+      {products.map((product) => (  
         <div key={product.id} style={styles.card} >
           <img src={product.image} alt={product.title} style={styles.image} />
           <h3>{product.title}</h3>

@@ -19,7 +19,7 @@ export default function ProductDetails() {
         setLoading(false);
     });
  },[id]);
-console.log(product);
+ console.log(product);
  if(loading) return <Loader/>
 
  if(!product) return <p>product details not found </p>

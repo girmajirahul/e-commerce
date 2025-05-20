@@ -4,20 +4,18 @@ import data from '../assets/data'
 import banner1 from '../assets/images/banner_women.png'
 export default function Women() {
   return (
-    <div>
-        <div>
-            <img src={banner1} alt="" className='h-[200px] w-full'/>
-        </div>
-        <div className='flex items-center h-[90vh] mt-20 ' >
+  
+      <div
+        className="relative text-white h-[300px]  w-full bg-cover bg-center grid place-items-center mb-10"
+        style={{ backgroundImage: `url(${banner1})` }}>
         
-        <hr/>
-        <div className='flex flex-wrap gap-7'>
+      <div className='flex flex-wrap gap-7 mt-80'>
           {data.map((item,i)=>{
             return <Item key={i} id={item.id} name={item.name} image={item.image} new_price={item.new_price} />
           })}
         </div>
       </div>
-    </div>
+    
 
   )
 }
