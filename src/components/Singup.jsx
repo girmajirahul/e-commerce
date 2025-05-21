@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import Alert from './Alert';
+import { useNavigate } from 'react-router-dom';
 
 export default function Signup() {
+  const navigate=useNavigate()
   const [showSignup, setShowSignup] = useState(false);
   const [formData,setformData]=useState({
     username:'',
@@ -8,7 +11,7 @@ export default function Signup() {
     email:'',
     password:'',
   });
-
+  const [alert , setAlert]=useState({message:'' , type:''});
   const handleChange=(e)=>{
     setformData(prev => ({ ...prev, [e.target.name]: e.target.value }));
   }
@@ -26,10 +29,28 @@ export default function Signup() {
         });
 
         const result =await response.json()
-        alert(result.message || "Success");
+        // alert(result.message || "Success");
+        if(response.ok){
+          if(showSignup){
+            setAlert({message:result.message || 'Signup Successful !' , type:'success'})
+            setShowSignup(false)
+          }
+          else{
+            localStorage.setItem('user',JSON.stringify(result.user));
+            setTimeout(()=>{
+              navigate('/');
+            },1000)
+            setAlert({message:result.message || 'Login Successful !' , type:'success'})
+          }
+          // setAlert({message:result.message || 'Success !' , type:'success'})
+        }
+        else{
+          setAlert({message:result.message || 'Failed  !' , type:'error'})
+        }
+
     }catch(err){
       console.log("error submit form ",err)
-      alert("Something Went Wrong !")
+      setAlert({ message: 'Something Went Wrong!', type: 'error' })
     }
 
   }
@@ -38,6 +59,13 @@ export default function Signup() {
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
       <div className="w-full max-w-md bg-white p-8 shadow-md rounded-lg">
+      {alert.message && (
+          <Alert
+            message={alert.message}
+            type={alert.type}
+            onClose={() => setAlert({ message: '', type: '' })}
+          />
+        )}
         <div className="text-blue-900 font-bold text-2xl text-center mb-6">
           <h3>{showSignup ? 'Create A New Account' : 'Already a member? Login'}</h3>
         </div>
