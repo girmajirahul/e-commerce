@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Loader from './Loader';
 
-const ProductList = () => {
+const ProductList = ({addToCart}) => {
 const [products, setProducts] = useState([]);
 const [loading, setLoading] = useState(true);
 const navigate=useNavigate()
@@ -56,9 +56,10 @@ const styles = {
         <div key={product.id} style={styles.card} >
           <img src={product.image} alt={product.title} style={styles.image} />
           <h3>{product.title}</h3>
-          <h4 className='font-serif'>{product.price} $</h4>
+          <h4 className='font-serif'>Price :{product.price} $</h4>
+         
           <div className="flex gap-2">
-            <button className=' bg-amber-300 p-3 rounded-[10px]  ' >Add to Cart </button>
+            <button className=' bg-amber-300 p-3 rounded-[10px]' onClick={()=>addToCart(product)} >Add to Cart </button>
             <button className=' bg-amber-500 p-3 rounded-[10px] ' onClick={()=>navigate(`/product/${product.id}`)} >Proceed Buy </button>
           </div>
         </div>

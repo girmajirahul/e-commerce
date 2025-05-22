@@ -1,8 +1,8 @@
 import React from 'react'
 import Heropic from '../assets/images/image1.jpg'
 import ProductList from './ProductList'
-import Popular from './Women'
-function Home() {
+function Home({addToCart}) {
+  
   return (
     <div>
       <div
@@ -16,7 +16,8 @@ function Home() {
       </div>
 
       <div>
-        <ProductList />
+        <ProductList addToCart={addToCart} />
+       
       </div>
      
     </div>
