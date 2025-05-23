@@ -1,11 +1,13 @@
+import { useCart } from "../../Context/CartContext";
 import CartItem from "./CartItems";
 import { useState } from "react";
 
-const CartPage = ({cartItems}) => {
+const CartPage = () => {
+  const { cart} = useCart();
   const [shipping, setShipping] = useState(false);
 
-  const subtotal = cartItems.reduce(
-    (sum, item) => sum + item.price * 1,
+  const subtotal = cart.reduce(
+    (sum, item) => sum + item.price * (item.quantity || 1),
     0
   );
   const shippingCost = shipping ? 10 : 0;
@@ -25,13 +27,13 @@ const CartPage = ({cartItems}) => {
         </div>
 
         {/* Cart Items */}
-        {cartItems.length==0 ? (
+        {cart.length==0 ? (
         <h4 className="text-center text-red-600 p-3 font-bold">No items in cart.</h4>
       ) : (
         <>
-        {cartItems.map((item, index) => (
+        {cart.map((item, index) => (
           <CartItem key={index} product={item} />
-        ))}
+        ))};
 
         </>
       )

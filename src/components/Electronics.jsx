@@ -28,7 +28,7 @@ export default function Electronics() {
     <div>
        <div className='flex flex-wrap gap-7'>
           {products.map((item,i)=>{
-            return <Item key={i} id={item.id} name={item.title} image={item.thumbnail} new_price={item.price} />
+            return <Item key={i} id={item.id} name={item.title} image={item.thumbnail} price={item.price} />
           })}
         </div>
     </div>

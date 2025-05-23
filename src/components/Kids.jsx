@@ -6,7 +6,7 @@ export default function Kids() {
     <div>
      <div className='flex flex-wrap gap-7'>
           {kids_data.map((item,i)=>{
-            return <Item key={i} id={item.id} name={item.name} image={item.image} new_price={item.new_price} />
+            return <Item key={i} id={item.id} name={item.name} image={item.image} price={item.price} description={item.description} />
           })}
         </div>
     </div>

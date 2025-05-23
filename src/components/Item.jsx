@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useCart } from '../Context/CartContext';
  
 
 export default function Item(props) {
-  const navigate = useNavigate();
+ const {addToCart}=useCart();
   
   const styles = {
     grid: {
@@ -23,7 +23,10 @@ export default function Item(props) {
       height: '200px',
       objectFit: 'contain',
     },
-    
+    description: {
+      fontSize: '0.9rem',
+      color: '#666',
+    },
   };
   return (
     <div style={styles.grid}>
@@ -33,12 +36,15 @@ export default function Item(props) {
           alt={props.name}
           className="w-full h-[200px] object-contain p-0"
         />
-        <p className="text-center font-medium mt-2 text-black">{props.name}</p>
+        <h4 className="text-center font-medium mt-2 text-black">{props.name}</h4>
+        <p style={styles.description}>{props.description}</p>
+
         <div className="flex flex-col items-center gap-2 mt-2 mb-3">
-          <div className="text-lg font-semibold text-green-600">${props.new_price}</div>
+          <div className="text-lg font-semibold text-green-600">${props.price}</div>
           <button
             
             className="bg-amber-500 hover:bg-amber-600 text-white py-1 px-4 rounded"
+            onClick={()=>addToCart(props)}
           >
             Add to Cart
           </button>

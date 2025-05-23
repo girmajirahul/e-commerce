@@ -10,36 +10,28 @@ import Kids from './components/Kids'
 import Electronics from './components/Electronics'
 import { useState } from 'react'
 import CartPage from './components/Cart/CartPages'
+import { CartProvider } from './Context/CartContext'
 
 function App() {
-  const [cart,setCart]=useState([])
-  
-    const addToCart=(product)=>{
-      setCart((prev)=>[...prev,product])
-    };
-    console.log("Updated Cart",cart);
-    
-
-  
-  return (
+   return (
     <>
       {/* <Navbar/> */}
-    
+      <CartProvider >
       <BrowserRouter>
         <Navbar />
-        <CartPage cartItems={cart}/>
+       
         <Routes>
-          <Route path="/" element={<Home  addToCart={addToCart}/>}/>
+          <Route path="/" element={<Home  />}/>
           <Route path="/register" element={<Singup />}/>
           <Route path="/women" element={<Women />}/>
           <Route path="/Kids" element={<Kids />}/>
           <Route path="/phones" element={<Electronics />}/>
-          <Route path="/cart" element={<CartPage cartItems={cart} />} />
+          <Route path="/cart" element={<CartPage />} />
           <Route path="/product/:id/" element={<ProductDetails />}/>
           
         </Routes>
       </BrowserRouter>
-      
+      </CartProvider>
     </>
   )
 }

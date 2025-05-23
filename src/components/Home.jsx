@@ -1,8 +1,9 @@
 import React from 'react'
 import Heropic from '../assets/images/image1.jpg'
 import ProductList from './ProductList'
-function Home({addToCart}) {
-  
+import { useCart } from '../Context/CartContext'
+function Home() {
+  const  {addToCart}=useCart()
   return (
     <div>
       <div

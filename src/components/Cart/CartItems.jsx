@@ -9,7 +9,7 @@ const CartItem = ({ product }) => {
       type === "inc" ? prev + 1 : prev > 1 ? prev - 1 : 1
     );
   };
-
+  console.log("Recieved Item ",product)
   const total = (product.price * quantity).toFixed(2); // Use `price` instead of `unitPrice`
 
   return (
