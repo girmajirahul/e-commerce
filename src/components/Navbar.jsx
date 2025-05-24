@@ -4,6 +4,7 @@ import 'aos/dist/aos.css';
 import { FaPhoneAlt, FaRegClock, FaShoppingCart, FaBars, FaTimes } from "react-icons/fa";
 import { MdOutlineMailOutline } from "react-icons/md";
 import { useNavigate } from 'react-router-dom';
+import logo from '../assets/logo2.png'
 
 export default function Navbar() {
   const [isFixed, setIsFixed] = useState(false);
@@ -54,7 +55,9 @@ export default function Navbar() {
         data-aos="fade-down"
       >
         <div className="flex justify-between w-full md:w-auto items-center">
-          <div className="text-lg font-bold">LOGO</div>
+          <div className="text-lg font-bold">
+            <img src={logo} alt="" className='h-10 w-auto' />
+          </div>
           {/* Hamburger Button (Mobile Only) */}
           <button className="md:hidden text-white text-2xl" onClick={toggleMenu}>
             {menuOpen ? <FaTimes /> : <FaBars />}

@@ -11,6 +11,8 @@ import Electronics from './components/Electronics'
 import { useState } from 'react'
 import CartPage from './components/Cart/CartPages'
 import { CartProvider } from './Context/CartContext'
+import Footer from './components/Footer'
+import NotFound from './components/NotFound'
 
 function App() {
    return (
@@ -28,8 +30,9 @@ function App() {
           <Route path="/phones" element={<Electronics />}/>
           <Route path="/cart" element={<CartPage />} />
           <Route path="/product/:id/" element={<ProductDetails />}/>
-          
+          <Route path='*' element={<NotFound />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
       </CartProvider>
     </>
