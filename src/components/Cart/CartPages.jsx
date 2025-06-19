@@ -33,7 +33,7 @@ const CartPage = () => {
         <>
         {cart.map((item, index) => (
           <CartItem key={index} product={item} />
-        ))};
+        ))}
 
         </>
       )

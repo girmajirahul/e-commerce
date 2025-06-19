@@ -2,7 +2,7 @@ import { useState } from "react";
 import { FaRegTrashAlt } from "react-icons/fa";
 
 const CartItem = ({ product }) => {
-  const [quantity, setQuantity] = useState(1); // Fake Store products don't have quantity
+  const [quantity, setQuantity] = useState(1); 
 
   const handleQuantity = (type) => {
     setQuantity((prev) =>
@@ -10,8 +10,7 @@ const CartItem = ({ product }) => {
     );
   };
   console.log("Recieved Item ",product)
-  const total = (product.price * quantity).toFixed(2); // Use `price` instead of `unitPrice`
-
+  const total = (product.price * quantity).toFixed(2);
   return (
     <div className="flex flex-col md:flex-row items-center justify-between border-b py-4 px-2">
       <div className="flex items-center gap-4 w-full md:w-1/3">
