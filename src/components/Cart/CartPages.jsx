@@ -22,7 +22,7 @@ const CartPage = () => {
           <div className="col-span-2 text-left">Product</div>
           <div className="hidden md:block">Unit Price</div>
           <div className="hidden md:block">Quantity</div>
-          <div className="hidden md:block">Total</div>
+          <div className="hidden md:block">Total Amount</div>
           <div className="hidden md:block">Delete</div>
         </div>
 

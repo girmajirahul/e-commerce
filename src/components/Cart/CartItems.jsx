@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { FaRegTrashAlt } from "react-icons/fa";
+import { useCart } from "../../Context/CartContext";
 
 const CartItem = ({ product }) => {
-  const [quantity, setQuantity] = useState(1); 
-
+  const [quantity, setQuantity] = useState(product.quantity); 
+  const {removeFromCart}=useCart()
   const handleQuantity = (type) => {
     setQuantity((prev) =>
       type === "inc" ? prev + 1 : prev > 1 ? prev - 1 : 1
@@ -33,7 +34,7 @@ const CartItem = ({ product }) => {
         <div className="w-1/4">${total}</div>
 
         <div className="w-1/12">
-          <button className="text-red-500 hover:text-red-700">
+          <button className="text-red-500 hover:text-red-700" onClick={()=>removeFromCart(product.id)}>
             <FaRegTrashAlt size={18} />
           </button>
         </div>

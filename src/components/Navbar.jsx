@@ -3,7 +3,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { FaPhoneAlt, FaRegClock, FaShoppingCart, FaBars, FaTimes } from "react-icons/fa";
 import { MdOutlineMailOutline } from "react-icons/md";
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import logo from '../assets/logo2.png'
 
 export default function Navbar() {
@@ -70,11 +70,11 @@ export default function Navbar() {
             } md:w-auto`}
         >
           <ul className="flex flex-col md:flex-row md:space-x-6 text-center font-medium mt-4 md:mt-0">
-            <li><a href="/" className="hover:text-[#FF8201] block py-2">Home</a></li>
-            <li><a href="/women" className="hover:text-[#FF8201] block py-2">Women Section</a></li>
-            <li><a href="/Kids" className="hover:text-[#FF8201] block py-2">KIDS Section</a></li>
-            <li><a href="/phones" className="hover:text-[#FF8201] block py-2">Electronics</a></li>
-            <li><a href="/cart" className="text-white block py-2"><FaShoppingCart size={22} /></a></li>
+            <li><Link to="/" className="hover:text-[#FF8201] block py-2">Home</Link></li>
+            <li><Link to="/women" className="hover:text-[#FF8201] block py-2">Women Section</Link></li>
+            <li><Link href="/Kids" className="hover:text-[#FF8201] block py-2">KIDS Section</Link></li>
+            <li><Link href="/phones" className="hover:text-[#FF8201] block py-2">Electronics</Link></li>
+            <li><Link to="/cart" className="text-white block py-2"><FaShoppingCart size={22} /></Link></li>
           </ul>
 
           <div className="mt-4 md:mt-0 md:ml-6 flex items-center space-x-4">
@@ -90,7 +90,7 @@ export default function Navbar() {
               </>
             ) : (
               <>
-                <a href="/register"
+                <a to="/register"
                   className="bg-white text-blue-950 py-2 px-4 rounded-full font-medium"
                 >
                   Login / Register
