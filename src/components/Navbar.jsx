@@ -72,8 +72,8 @@ export default function Navbar() {
           <ul className="flex flex-col md:flex-row md:space-x-6 text-center font-medium mt-4 md:mt-0">
             <li><Link to="/" className="hover:text-[#FF8201] block py-2">Home</Link></li>
             <li><Link to="/women" className="hover:text-[#FF8201] block py-2">Women Section</Link></li>
-            <li><Link href="/Kids" className="hover:text-[#FF8201] block py-2">KIDS Section</Link></li>
-            <li><Link href="/phones" className="hover:text-[#FF8201] block py-2">Electronics</Link></li>
+            <li><Link to="/Kids" className="hover:text-[#FF8201] block py-2">KIDS Section</Link></li>
+            <li><Link to="/phones" className="hover:text-[#FF8201] block py-2">Electronics</Link></li>
             <li><Link to="/cart" className="text-white block py-2"><FaShoppingCart size={22} /></Link></li>
           </ul>
 
@@ -90,11 +90,11 @@ export default function Navbar() {
               </>
             ) : (
               <>
-                <a to="/register"
+                <Link to="/register"
                   className="bg-white text-blue-950 py-2 px-4 rounded-full font-medium"
                 >
                   Login / Register
-                </a>
+                </Link>
               </>
             )}
           </div>
